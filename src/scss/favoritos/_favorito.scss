@@ -1,0 +1,65 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.favorito{
+    background-color: v.$blanco;
+    padding: 4rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 2.6rem -0.8rem darken(v.$grisClaro, 20%) ; //la function darken ocurece un color que queramos en este caso 20%
+    border-radius: 1rem;
+
+    &:last-of-type{
+        margin-bottom: 0;
+    }
+
+    @include m.tablet { 
+        margin-bottom: 0;
+    }
+
+    &__grid{
+        @include m.tablet { 
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @include m.desktop { 
+            grid-template-columns: 1fr 3fr;
+            gap: 4rem;
+        }
+    }
+
+    &__imagen{
+        max-width: 20rem;
+        margin: 0 auto 2rem auto;
+    }
+
+    &__contenido{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include m.tablet { 
+            align-items: flex-start;
+        }
+    }
+
+    &__nombre{
+        margin: 1rem 0;
+        color: v.$primario;
+        font-size: 2.4rem;
+    }
+
+    &__descripcion{
+        margin: .5rem 0;
+        text-align: center;
+        font-size: 1.6rem;
+        color: v.$secundario;
+        line-height: 1.7;
+
+        @include m.tablet { 
+            text-align: left;
+        }
+    }
+}
